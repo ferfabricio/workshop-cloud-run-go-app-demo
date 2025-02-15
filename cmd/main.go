@@ -22,7 +22,7 @@ func main() {
 		port = "8080"
 	}
 	http.HandleFunc("/", handler)
-	logger.Info("servidor inicializado", "porta", port)
+	logger.Info("servidor inicializado", "porta", port, "app-name", os.Getenv("APP_NAME"))
 
 	err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
 	if err != nil {
